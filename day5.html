@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .container{
+            width: 300px;
+            border: solid 2px;
+            box-shadow: 0 0 2px 4px ;
+            border-radius: 10px;
+            background-color: beige;
+        }
+        input{
+            width: 90%;
+            border-radius: 5px;
+        }
+        button{
+            width: 90%;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <h1></h1>
+    <label for="">username</label>
+    <input type="text" id="username" placeholder="Enter your username">
+    <label for="">password</label>
+    <input type="password" id="password" placeholder="Enter your password">
+    <button onclick="login()">login</button>
+    <div id="msg"></div>
+    
+   </div>
+   <script>
+    let users = [
+        { username: "Thiru", password: "Thiru9392" },
+        { username: "Mani", password: "Mani2664" },
+        { username: "Chandu", password: "Model@38" },
+        { username: "Sai", password: "Router@$" }
+    ];
+
+    function login(){
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let msg = document.getElementById("msg");
+        
+        let foundUser = users.find(user => 
+            user.username === username && user.password === password
+        );
+
+        if(foundUser){
+           
+            msg.innerHTML = "Login successful! Welcome ${foundUser.username}";
+            msg.style.color = "green";
+            window.location.href = "https://www.instagram.com/reels/DE2EqKDPZI3/";
+        }
+        else {
+            msg.innerHTML = "Invalid username or password";
+            msg.style.color = "red";
+        }
+    }
+   </script>
+</body>
+</html>

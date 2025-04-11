@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        #container {
+            border: 2px solid orange;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+        }
+        .counter-display {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #decrement {
+            background-color: #f44336;
+        }
+        #reset {
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Counter App</h1>
+        <div class="counter-display" id="counter">0</div>
+        <div>
+            <button id="increment">Increment (+)</button>
+            <button id="decrement">Decrement (-)</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let count = 0;
+        let counterDisplay = document.getElementById('counter');
+        let incrementBtn = document.getElementById('increment');
+        let decrementBtn = document.getElementById('decrement');
+        let resetBtn = document.getElementById('reset');
+
+        function updateCounter() {
+            counterDisplay.textContent = count;
+        }
+
+        incrementBtn.addEventListener('click', () => {
+            count++;
+            updateCounter();
+        });
+
+        decrementBtn.addEventListener('click', () => {
+            count--;
+            updateCounter();
+        });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
